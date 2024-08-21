@@ -70,7 +70,7 @@ export function Summary({ summary, setSummary }) {
   const handleDownload = async () => {
     if (summary && file) {
       try {
-      const url = BackBaseUrl + `/ocr/download/summarized/${file.name}`
+        const url = BackBaseUrl + `/ocr/download/summarized/${file.name}`
         const response = await fetch(url, {
           method: 'GET',
         });
@@ -135,16 +135,17 @@ export function Summary({ summary, setSummary }) {
             <h3 className="text-lg font-bold text-card-foreground mb-2">Invoice Summary</h3>
             <div className="text-card-foreground">
               {summary ? (
-                <p>{summary}</p>
+                <p style={{ lineHeight: '1.1', margin: '0' }} dangerouslySetInnerHTML={{ __html: summary.replace(/\n/g, '<br />') }} />
               ) : (
                 <p>No summary available yet. Please upload an image.</p>
               )}
             </div>
-            {!uploading && summary && (
+            {summary && (
               <div className="flex justify-center">
                 <Button
                   onClick={handleDownload}
                   className="mt-4 w-40"
+                  disabled={uploading}
                 >
                   Download
                 </Button>

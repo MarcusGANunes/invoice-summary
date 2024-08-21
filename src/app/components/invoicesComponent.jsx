@@ -219,8 +219,11 @@ export function InvoicesComponent() {
           {selectedInvoice ? (
             <div className="grid gap-4">
               <div className="grid gap-2">
-                <div className="text-sm font-medium text-muted-foreground">Invoice Details</div>
-                <div className="text-lg font-semibold">{selectedInvoice.summary}</div>
+                <div 
+                  className="text-lg font-semibold"
+                  style={{ lineHeight: '1.1', fontSize: '15px' }}
+                  dangerouslySetInnerHTML={{ __html: selectedInvoice.summary.replace(/\n/g, '<br />') }}
+                />
               </div>
               <Separator className="my-6" />
               <div className="grid gap-4">
