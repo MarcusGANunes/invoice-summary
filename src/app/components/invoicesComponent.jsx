@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from 'react';
-import { Table, TableHeader, TableRow, TableBody, TableCell } from "@/components/ui/table";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Textarea } from "@/components/ui/textarea";
+import { useEffect, useState } from 'react'
+import { Table, TableHeader, TableRow, TableBody, TableCell } from "@/components/ui/table"
+import { Button } from "@/components/ui/button"
+import { Separator } from "@/components/ui/separator"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+import { Textarea } from "@/components/ui/textarea"
 const BackBaseUrl = process.env.NEXT_PUBLIC_BACK_BASE_URL
 const FrontBaseUrl = process.env.NEXT_PUBLIC_FRONT_BASE_URL
 
@@ -21,7 +21,7 @@ export function InvoicesComponent() {
   useEffect(() => {
     const fetchName = async () => {
       try {
-        const url = FrontBaseUrl + '/api/get-name';
+        const url = FrontBaseUrl + '/api/get-name'
         const response = await fetch(url, {
           method: 'GET'
         })
@@ -32,8 +32,8 @@ export function InvoicesComponent() {
       }
     }
   
-    fetchName();
-  }, []);
+    fetchName()
+  }, [])
 
   useEffect(() => {
     const fetchInvoices = async () => {
@@ -47,10 +47,10 @@ export function InvoicesComponent() {
       } catch (error) {
         console.error('Error fetching invoices:', error)
       }
-    };
+    }
 
     fetchInvoices()
-  }, []);
+  }, [])
 
   const handleInvoiceClick = async invoiceId => {
     try {
@@ -96,7 +96,7 @@ export function InvoicesComponent() {
     } catch (error) {
       console.error('Error downloading file:', error)
     }
-  };
+  }
 
   const handleDownloadSummary = async () => {
     if (!selectedInvoice) return
@@ -105,7 +105,7 @@ export function InvoicesComponent() {
       const url = BackBaseUrl + `/ocr/download/summarized/${selectedInvoice.fileName}`
       const response = await fetch(url, {
         method: 'GET',
-      });
+      })
       if (response.ok) {
         const blob = await response.blob()
         const url = window.URL.createObjectURL(blob)
@@ -122,7 +122,7 @@ export function InvoicesComponent() {
     } catch (error) {
       console.error('Error downloading file:', error)
     }
-  };
+  }
 
   const handleAddComment = async () => {
     if (!newComment || !selectedInvoice) return
@@ -156,7 +156,7 @@ export function InvoicesComponent() {
     } finally {
       setIsSending(false)
     }
-  };
+  }
 
   const getInitials = name => {
     const nameParts = name.split(' ')
@@ -279,7 +279,7 @@ export function InvoicesComponent() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
 function DownloadIcon() {
@@ -299,5 +299,5 @@ function DownloadIcon() {
       <polyline points="7 10 12 15 17 10" />
       <line x1="12" x2="12" y1="15" y2="3" />
     </svg>
-  );
+  )
 }
