@@ -21,7 +21,7 @@ export function InvoicesComponent() {
   useEffect(() => {
     const fetchName = async () => {
       try {
-        const url = FrontBaseUrl + '/api/get-name'
+        const url ='api/get-name'
         const response = await fetch(url, {
           method: 'GET'
         })
