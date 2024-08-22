@@ -32,5 +32,5 @@ This guide provides a step-by-step process to configure and deploy this front-en
   `NEXT_PUBLIC_BACK_BASE_URL=https://<your-backend-api>.com`
 
 **3. Install and Build Commands:**
-- Set the install command to `yarn install`.
-- Set the build command to `yarn build`.
+- Set the install command `yarn install`.
+- Set the build command `yarn build`.
