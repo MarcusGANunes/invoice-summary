@@ -13,6 +13,10 @@ This guide provides a step-by-step process to configure and deploy this front-en
 **2. Project Environment Variables:**
 - Generate the NextAuth secret using the following command in your terminal: `openssl rand -base64 32`
 
+- Add the NextAuth to Environment:
+  `NEXTAUTH_SECRET=<secret>`
+  `NEXTAUTH_URL=https://<your-project>.vercel.app`
+
 - Add the PostgreSQL variables with the appropriate values (replace `<information>` with your own data):
   `POSTGRES_PRISMA_URL="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require"`
   
