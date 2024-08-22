@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Deployment Instructions for Vercel
 
-## Getting Started
+This guide provides a step-by-step process to configure and deploy this front-end repository on Vercel, including setting up a PostgreSQL database using Prisma.
 
-First, run the development server:
+**Prerequisites:**
+- An account on [Vercel](https://vercel.com/)
+- A PostgreSQL database hosted on Vercel or another hosting service
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**1. Fork the Repository:**
+- First, fork the repository to your GitHub account.
+- Then, connect your GitHub account to your Vercel account to proceed with the deployment.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**2. Project Environment Variables:**
+- Generate the NextAuth secret using the following command in your terminal: `openssl rand -base64 32`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Add the PostgreSQL variables with the appropriate values (replace `<information>` with your own data):
+  `POSTGRES_PRISMA_URL="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require"`
+  
+  `POSTGRES_URL_NON_POOLING="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require&connection_limit=1"`
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Add the hosting variables for the project's backend and frontend:
+  `NEXT_PUBLIC_FRONT_BASE_URL=https://<your-project>.vercel.app`
+  
+  `NEXT_PUBLIC_BACK_BASE_URL=https://<your-backend-api>.com`
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+**3. Install and Build Commands:**
+- Set the install command to `yarn install`.
+- Set the build command to `yarn build`.
