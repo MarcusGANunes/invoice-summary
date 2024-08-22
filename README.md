@@ -1,6 +1,6 @@
 # Deployment Instructions for Vercel
 
-This guide provides a step-by-step process to configure and deploy this front-end repository on Vercel, including setting up a PostgreSQL database using Prisma.
+This guide provides a step-by-step process to configure and deploy this front-end repository on Vercel.
 
 **Prerequisites:**
 - An account on [Vercel](https://vercel.com/)
