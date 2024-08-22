@@ -20,11 +20,13 @@ This guide provides a step-by-step process to configure and deploy this front-en
   `NEXTAUTH_URL=https://<your-project>.vercel.app`
 
 - Add the PostgreSQL variables with the appropriate values (replace `<information>` with your own data):
+
   `POSTGRES_PRISMA_URL="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require"`
   
   `POSTGRES_URL_NON_POOLING="postgresql://<username>:<password>@<host>:<port>/<database>?sslmode=require&connection_limit=1"`
 
 - Add the hosting variables for the project's backend and frontend:
+
   `NEXT_PUBLIC_FRONT_BASE_URL=https://<your-project>.vercel.app`
   
   `NEXT_PUBLIC_BACK_BASE_URL=https://<your-backend-api>.com`
